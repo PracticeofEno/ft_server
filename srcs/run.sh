@@ -11,7 +11,6 @@ chmod 600 etc/ssl/private/localhost.dev.key etc/ssl/certs/localhost.dev.crt
 
 cp -rp /tmp/default /etc/nginx/sites-available/
 
-wget https://wordpress.org/latest.tar.gz
 tar -xvf latest.tar.gz
 mv wordpress/ var/www/html/
 chown -R www-data:www-data /var/www/html/wordpress
@@ -22,7 +21,6 @@ echo "create database if not exists wordpress;" | mysql -u root --skip-password
 echo "create user if not exists 'kkkk' identified by 'kkkk';" | mysql -u root --skip-password
 echo "grant all privileges on wordpress.* to 'kkkk' with grant option;" | mysql -u root --skip-password
 
-wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
 tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz
 mv phpMyAdmin-5.0.2-all-languages phpmyadmin
 mv phpmyadmin /var/www/html/
@@ -31,7 +29,9 @@ cp -rp /tmp/config.inc.php /var/www/html/phpmyadmin/
 
 service nginx start
 service php7.3-fpm start
-service mysql restart
 
-bash
+while true;
+	do echo "still live";
+	sleep 600;
+done
 

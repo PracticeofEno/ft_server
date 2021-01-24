@@ -12,6 +12,9 @@ RUN	apt-get update && apt-get install -y \
 	openssl \
 	php7.3-fpm
 
+RUN	wget https://wordpress.org/latest.tar.gz
+RUN	wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
+
 COPY	./srcs/run.sh ./
 COPY	./srcs/default ./tmp
 COPY	./srcs/wp-config.php ./tmp
